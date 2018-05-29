@@ -1,45 +1,82 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Normalize.css for better cross-browser consistency -->
   <link rel="stylesheet" src="//normalize-css.googlecode.com/svn/trunk/normalize.css" />
+  <!-- Main CSS file -->
   <link rel="stylesheet" href="css/styles.css">
+  <!-- Responsive CSS file -->
+  <link rel="stylesheet" href="css/responsive.css">
   <title>Restaurant Reviews</title>
 </head>
 
 <body>
-  <header>
-    <nav>
-      <h1><a href="/">Restaurant Reviews</a></h1>
-    </nav>
-  </header>
 
+  <!-- Beginning header -->
+  <header>
+    <!-- Beginning nav -->
+    <nav>
+      <h1>
+        <a href="/" aria-label="Landing page link">Restaurant Reviews</a>
+      </h1>
+    </nav>
+    <!-- End nav -->
+  </header>
+  <!-- End header -->
+
+  <!-- Beginning main -->
   <main id="maincontent">
+
+    <!-- Beginning map -->
     <section id="map-container">
-      <div id="map"></div>
+      <div id="map" role="application" aria-label="Map with restaurants" tabindex="0"></div>
     </section>
+    <!-- End map -->
+
     <section>
+      <!-- Beginning filter options -->
       <div class="filter-options">
-        <h2>Filter Results</h2>
-        <select id="neighborhoods-select" name="neighborhoods" onchange="updateRestaurants()">
+        <div id="select-title">
+          <h2 tabindex="0">Filter Results</h2>
+        </div>
+        <select id="neighborhoods-select" name="neighborhoods" onchange="updateRestaurants()" tabindex="0" aria-label="Select neighborhood">
           <option value="all">All Neighborhoods</option>
         </select>
-        <select id="cuisines-select" name="cuisines" onchange="updateRestaurants()">
+        <select id="cuisines-select" name="cuisines" onchange="updateRestaurants()" tabindex="0" aria-label="Select cuisine">
           <option value="all">All Cuisines</option>
         </select>
       </div>
+      <!-- End filter options -->
+      <!-- Beginning restaurants list-->
       <ul id="restaurants-list"></ul>
+      <!-- End restaurants list-->
     </section>
+
   </main>
+  <!-- End main -->
 
+  <!-- Beginning scripts -->
+  <!-- Database helpers -->
   <script type="application/javascript" charset="utf-8" src="js/dbhelper.js"></script>
+  <!-- Main javascript file -->
   <script type="application/javascript" charset="utf-8" src="js/main.js"></script>
-  <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&libraries=places&callback=initMap"></script>
+  <!-- Google Maps -->
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC6EZ_sernhjtV1lz7NmiV2vfYfKJgTkMg&libraries=places&callback=initMap"></script>
+  <!-- ServiceWorker -->
+  <script type="application/javascript" src="js/sw_registration.js"></script>
+  <!-- End scripts -->
 
-
+  <!-- Beginning footer -->
   <footer id="footer">
-    Copyright (c) 2017 <a href="/"><strong>Restaurant Reviews</strong></a> All Rights Reserved.
+    Copyright (c) 2017
+    <a href="/" aria-label="Landing page link">
+      <strong>Restaurant Reviews</strong>
+    </a> All Rights Reserved.
   </footer>
+  <!-- End footer -->
 
 </body>
 
