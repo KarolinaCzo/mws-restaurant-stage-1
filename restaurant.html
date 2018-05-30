@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <!-- Normalize.css for better cross-browser consistency -->
@@ -24,7 +25,7 @@
       </h1>
     </nav>
     <!-- Beginning breadcrumb -->
-    <ul id="breadcrumb">
+    <ul id="breadcrumb" role="navigation">
       <li>
         <a href="/" aria-label="Landing page link">Home</a>
       </li>
@@ -38,12 +39,12 @@
   <main id="maincontent">
     <!-- Beginning map -->
     <section id="map-container">
-      <div id="map" aria-label="Map with location of the restaurant" tabindex="-1"></div>
+      <div id="map" role="application" aria-label="Map with location of the restaurant" tabindex="0"></div>
     </section>
     <!-- End map -->
     <!-- Beginning restaurant -->
     <section id="restaurant-container">
-      <h1 id="restaurant-name"></h1>
+      <h2 id="restaurant-name"></h2>
       <img id="restaurant-img">
       <p id="restaurant-cuisine"></p>
       <p id="restaurant-address"></p>

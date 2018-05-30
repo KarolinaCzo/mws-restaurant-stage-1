@@ -9,6 +9,10 @@ self.addEventListener('install', function(event) {
     '/index.html',
     '/restaurant.html',
     '/css/styles.css',
+    '/css/responsive.css',
+    '/css/responsive_restaurant.css',
+    '/sw.js',
+    '/js/sw_registration.js',
     '/js/dbhelper.js',
     '/js/main.js',
     '/js/restaurant_info.js',
@@ -38,27 +42,29 @@ self.addEventListener('install', function(event) {
   );
 });
 
-// An activate event - for getting rid of old caches.
-self.addEventListener('activate', function(event) {
-  event.waitUntil(caches.delete(cacheName));
-});
-
 // A fetch event fires every time any resource controlled by a service worker
 // is fetched. Call the respondWith() method on the event to hijack the HTTP
 // responses.
 self.addEventListener('fetch', function(event) {
   event.respondWith(
-    // Start by simply responding with the resource whose url matches
-    // that of the network request
     caches
       .match(event.request)
-      // If the resources isn't in the cache, it is requested from the network.
-      .then(function(response) {
-        return response || fetch(event.request);
+      .then(function(resp) {
+        return (
+          resp ||
+          fetch(event.request).then(function(response) {
+            let responseClone = response.clone();
+            caches.open(cacheName).then(function(cache) {
+              cache.put(event.request, responseClone);
+            });
+            return response;
+          })
+        );
       })
-      // Error handling
-      .catch(function(error) {
-        console.log('Upps, no cache entry!');
+      .catch(function(err) {
+        console.log('Could not load from cache or fetch response');
+        console.log(err);
+        return new Response('', { status: 404 });
       })
   );
 });

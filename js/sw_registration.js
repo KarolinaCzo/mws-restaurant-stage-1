@@ -2,7 +2,7 @@
  * Telling the browser to register the 'sw.js' file as the "service worker".
  */
 navigator.serviceWorker
-  .register('./sw.js')
+  .register('/sw.js')
   .then(function(reg) {
     // If ServiceWorker gets registered console.log this message.
     console.log('Yay! Service worker registered.');
@@ -30,6 +30,7 @@ navigator.serviceWorker
     }
   })
   // If ServiceWorker registration failed - console.log this message.
-  .catch(function() {
+  .catch(function(error) {
     console.log('Boo! Registration failed.');
+    console.log(error);
   });
