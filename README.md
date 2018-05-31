@@ -55,6 +55,9 @@ Links to the resources I used in my project that could be helpful for other deve
   https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerGlobalScope/skipWaiting
   https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API/Using_Service_Workers
   https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API/Using_Service_Workers#Updating_your_service_worker
+  https://developers.google.com/web/ilt/pwa/caching-files-with-service-worker
+  https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook/
+  https://stackoverflow.com/questions/46216387/service-worker-caching-not-recognizing-timeout-as-a-function
 
 * other:
   https://developer.mozilla.org/en-US/docs/Web/CSS/calc
