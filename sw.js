@@ -1,4 +1,4 @@
-var cacheName = 'resturant-cache';
+let cacheName = 'resturant-cache';
 
 // The install event is fired when an install is successfully completed.
 // The install event is generally used to populate your browser’s offline
@@ -15,19 +15,9 @@ self.addEventListener('install', function(event) {
     caches
       .open(cacheName)
       .then(function(cache) {
-        return cache.addAll([
-          '/',
-          '/index.html',
+        cache.addAll([
           '/restaurant.html',
-          '/css/styles.css',
-          '/css/responsive.css',
           '/css/responsive_restaurant.css',
-          '/sw.js',
-          '/js/sw_registration.js',
-          '/js/dbhelper.js',
-          '/js/main.js',
-          '/js/restaurant_info.js',
-          '/data/restaurants.json',
           '/img/1.jpg',
           '/img/2.jpg',
           '/img/3.jpg',
@@ -38,6 +28,18 @@ self.addEventListener('install', function(event) {
           '/img/8.jpg',
           '/img/9.jpg',
           '/img/10.jpg'
+        ]);
+        return cache.addAll([
+          '/',
+          '/index.html',
+          '/css/styles.css',
+          '/css/responsive.css',
+          '/sw.js',
+          '/js/sw_registration.js',
+          '/js/dbhelper.js',
+          '/js/main.js',
+          '/js/restaurant_info.js',
+          '/data/restaurants.json'
         ]);
       })
       .then(function(event) {
@@ -54,6 +56,7 @@ self.addEventListener('fetch', function(event) {
     caches
       .match(event.request)
       .then(function(response) {
+        console.log('I have a response :)');
         return (
           response ||
           fetch(event.request).then(function(networkResponse) {

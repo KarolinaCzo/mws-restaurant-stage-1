@@ -58,6 +58,7 @@ Links to the resources I used in my project that could be helpful for other deve
   https://developers.google.com/web/ilt/pwa/caching-files-with-service-worker
   https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook/
   https://stackoverflow.com/questions/46216387/service-worker-caching-not-recognizing-timeout-as-a-function
+  https://stackoverflow.com/questions/34147562/service-worker-is-caching-files-but-fetch-event-is-never-fired
 
-* other:
+- other:
   https://developer.mozilla.org/en-US/docs/Web/CSS/calc
